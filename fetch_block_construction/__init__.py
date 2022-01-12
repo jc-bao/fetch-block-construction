@@ -35,3 +35,8 @@ for num_blocks in range(1, 25):
                             kwargs=kwargs,
                             max_episode_steps=50 * num_blocks,
                         )
+
+register(
+    id = 'FetchTower-v0', 
+    entry_point='fetch_block_construction.envs.robotics:FetchTower'
+)

@@ -2,25 +2,23 @@ import gym
 import numpy as np
 from gym.wrappers.monitor import Monitor
 import fetch_block_construction
-env = gym.make('FetchBlockConstruction_2Blocks_SparseReward_DictstateObs_42Rendersize_FalseStackonly_SingletowerCase-v1')
-env = Monitor(env, directory="videos", force=True, video_callable=lambda x: x)
-
-env.env._max_episode_steps = 50
-# env.env.seed(0)
-
+env = gym.make('FetchTower-v0')
+# env = Monitor(env, directory="videos", force=True, video_callable=lambda x: x)
 env.reset()
-env.env.stack_only = True
-
 step=0
+num_obj = 1
 while True:
     obs, done =env.reset(), False
     while not done:
         # env.render()
-        action = np.asarray([0, 0, 0, 0])
+        action = env.action_space.sample()
         step_results = env.step(action)
         obs, reward, done, info = step_results
-        print("Reward: {} Info: {}".format(reward, info))
-        if done:
+        if step==env._max_episode_steps:
+            print(env._max_episode_steps)
             step = 0
+            num_obj+=1
+            env.change(num_obj)
+            env.reset()
         step+=1
-        print(step)
+        env.render()

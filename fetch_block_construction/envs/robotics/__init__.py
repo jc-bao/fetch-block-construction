@@ -5,3 +5,4 @@ from fetch_block_construction.envs.robotics.fetch.reach import FetchReachEnv
 from fetch_block_construction.envs.robotics.fetch.reach_fixed import FetchReachFixedGoalEnv
 
 from fetch_block_construction.envs.robotics.fetch.construction import FetchBlockConstructionEnv
+from fetch_block_construction.envs.robotics.fetch.tower import FetchTower
