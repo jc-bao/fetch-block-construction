@@ -81,6 +81,7 @@ class FetchTower(fetch_env.FetchEnv):
             'observation': obs.copy(),
             'achieved_goal': achieved_goal.copy(),
             'desired_goal': self.goal.copy(),
+            'info': {'gripper_pos': grip_pos},
         }
         return return_dict
 
