@@ -17,7 +17,7 @@ while True:
         if step==env._max_episode_steps:
             print(env._max_episode_steps)
             step = 0
-            num_obj+=1
+            # num_obj+=1
             env.change(num_obj)
             env.reset()
         step+=1

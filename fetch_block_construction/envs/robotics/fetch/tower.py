@@ -121,7 +121,7 @@ class FetchTower(fetch_env.FetchEnv):
             self.np_random.uniform(-self.target_range, self.target_range,size=3)
         goal_object0 += self.target_offset
         goal_object0[2] = self.height_offset
-        if self.np_random.uniform() < 0.5 and self.num_blocks==1:
+        if self.np_random.uniform() < 0.3 and self.num_blocks==1:
             goal_object0[2] += self.np_random.uniform(0, 0.45)
         goals.append(goal_object0)
         # sample other goals
